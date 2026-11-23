@@ -29,7 +29,3 @@ jobs:
 
       - name: Run the tests
         run:  PYTHONPATH=. pytest -v
-
-      - name: Run the tests
-        run: pytest -v
-      
