@@ -1,22 +1,29 @@
-name: pyhton-workflow
+name: python-workflow
 
 on:
- push:
-   branches:
-        - main
+  push:
+    branches:
+      - main
 
 jobs:
   test:
-     runs-on: ubuntu-latest
-     
-     steps:
-       - name: checkout repo
-         use: actions/checkout@v7
-         with:
-            python-version:  '3.12'
-      
-      - name: intsall dependencies
-        run:  pip install -r requirements.txt
+    runs-on: ubuntu-latest
 
-      - name: run the tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run the tests
         run: pytest -v
+
+      - name: Run the tests
+        run: pytest -v
+      
