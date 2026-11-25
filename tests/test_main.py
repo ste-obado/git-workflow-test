@@ -45,6 +45,3 @@ def test_get_missing_task_returns_404():
     response = client.get("/tasks/999")
     assert response.status_code == 404
     assert response.json() == {"detail": "Task not found"}
-
-def test_ci_detects_failure():
-    assert 1 == 2
