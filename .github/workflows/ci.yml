@@ -28,4 +28,11 @@ jobs:
           find . -maxdepth 2 -type f 
 
       - name: Run the tests
-        run:  PYTHONPATH=. pytest -v
+        run:  PYTHONPATH=. pytest -v  --junitxml=test-results.xml
+
+      - name: Upload test report
+          if: always()
+          uses: actions/upload-artifact@v4
+          with:
+             name: pytest-report
+             path: test-results.xml
